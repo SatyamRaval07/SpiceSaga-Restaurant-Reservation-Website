@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+    <!-- Start slides -->
+    
+    <div id="slides" class="cover-slides">
+        <ul class="slides-container">
+            {% for img in ImgSlider %}
+            <li class="text-center">
+                <img src="{{ img.image.url }}" alt="slider image">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Welcome To <br> SpiceSaga Restaurant</strong></h1>
+                            <p class="m-b-40">Step into a world where every bite tells a story <br>
+                                where culinary enchantment and spice-infused tales await your palate.</p>
+                            <p><a class="btn btn-lg btn-circle btn-outline-new-white" href="{% url 'reservation:reserve_page' %}">Reservation</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+             {% endfor %}
+        </ul>
+        <div class="slides-navigation">
+            <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <!-- End slides -->
+
+    <!-- Start About -->
+    <div class="about-section-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <img src="{% static 'images/ss-logo.png' %}" alt="Logo">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+                    <div class="inner-column">
+                        <h1>Welcome To <span>SpiceSaga Restaurant</span></h1>
+                        <br>
+                        <p>Welcome to Spice Saga, where we invite you to embark on a culinary adventure that 
+                            transcends boundaries and tantalizes your taste buds. At Spice Saga, we believe in 
+                            more than just serving food; we craft experiences that celebrate the rich tapestry 
+                            of flavors woven into the vibrant landscape of Indian cuisine.</p>
+                        <p>Our journey begins with a passion for spices — the heart and soul of every dish we create.
+                            From the warm embrace of cumin to the fiery kick of chili, each spice tells a 
+                           story, and at Spice Saga, we are dedicated to sharing those stories with you.</p>
+                           <br>
+                        <a class="btn btn-lg btn-circle btn-outline-new-white" href="{% url 'reservation:reserve_page' %}">Reservation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About -->
+
+    <!-- Start QT -->
+    <div class="qt-box qt-background">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-left">
+                    <p class="lead ">
+                        "Savor the extraordinary at Spice Saga, where culinary artistry meets unforgettable dining experiences."
+                    </p>
+                    {% comment %} <span class="lead">Michael Strahan</span> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End QT -->
+
+    <!-- Start Menu -->
+    <div class="menu-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading-title text-center">
+                        <h2>Special Menu</h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="special-menu text-center">
+                        <div class="button-group filter-button-group">
+                            <button class="active" data-filter="*">All</button>
+                            <button data-filter=".drinks">Drinks</button>
+                            <button data-filter=".lunch">Lunch</button>
+                            <button data-filter=".dinner">Dinner</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row special-list">
+                {% for food in foods %}
+                    {% if food.status %}
+                        <a href="{% url 'food:FoodDetail_page' food.slug %}">
+                            <div class="col-lg-4 col-md-6 special-grid {{ food.food_type }}">
+                                <div class="gallery-single fix">
+                                    <img src="{{ food.image.url }}" class="img-fluid" alt="Image">
+                                    <div class="why-text">
+                                        <h4>{{ food.name.capitalize }}</h4>
+                                        <p>{{ food_details.description }}</p>
+                                        <h5> ₹{{ food.price }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- End Menu -->
+
+    
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+    <!-- Start header -->
+    <div class="all-page-title page-breadcrumb">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>About Us</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End header -->
+
+    <!-- Start About -->
+    <div class="about-section-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <img src="{% static 'images/ss-logo.png' %}" alt="image">
+                </div>
+                <div class="col-lg-6 col-md-6 text-center">
+                    <div class="inner-column">
+                        <h1>Welcome To <span>SpiceSaga Restaurant</span></h1>
+                        <br>
+                        <h4>Little Story</h4>
+                        <br>
+                        <p>Welcome to Spice Saga, where we invite you to embark on a culinary adventure that 
+                            transcends boundaries and tantalizes your taste buds. At Spice Saga, we believe in 
+                            more than just serving food; we craft experiences that celebrate the rich tapestry 
+                            of flavors woven into the vibrant landscape of Indian cuisine. </p>
+                        <p>Our journey begins with a passion for spices — the heart and soul of every dish we create.
+                             From the warm embrace of cumin to the fiery kick of chili, each spice tells a 
+                            story, and at Spice Saga, we are dedicated to sharing those stories with you.</p>
+                       
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="inner-pt">
+                        <p>Founded with a commitment to authenticity and innovation, Spice Saga brings 
+                            together traditional Indian recipes and contemporary culinary techniques. Our chefs, 
+                            inspired by the diverse regions of India, 
+                            curate a menu that pays homage to the centuries-old culinary heritage while adding a modern twist.</p>
+                        <p>We take pride in sourcing the finest ingredients, ensuring that every dish 
+                            reflects the freshness and quality that defines Spice Saga. Whether you're a 
+                            connoisseur of Indian cuisine or a first-time explorer,
+                             our menu offers a symphony of flavors that cater to every palate.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About -->
+{% endblock %}
